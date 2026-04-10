@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin | DJ's House of Cards &amp; Comics</title>
+<meta content="Add and manage custom items locally using the built-in admin dashboard." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700;800&amp;family=Lobster+Two:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body data-page="admin"><a class="skip-link" href="#mainContent">Skip to main content</a>
+<header class="site-header">
+<div class="container header-inner">
+<a aria-label="DJ's House of Cards &amp; Comics home" class="brand" href="index.html">
+<img alt="DJ's House of Cards &amp; Comics logo" class="brand-logo" src="assets/dj-logo.png"/>
+<span class="brand-copy">
+<span class="brand-script">DJ's House of Cards</span>
+<span class="brand-kicker">&amp; Comics • Cards • Collectibles</span>
+</span>
+</a>
+<nav aria-label="Primary navigation" class="site-nav" id="siteNav"><ul><li><a href="index.html">Home</a></li><li><a href="sports-cards.html">Sports Cards</a></li><li><a href="comics.html">Comics</a></li><li><a href="collectibles.html">Collectibles</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li class="header-wishlist-item"><a class="header-wishlist-link" href="wishlist.html">Wishlist</a></li></ul></nav>
+<button aria-controls="siteNav" aria-expanded="false" class="nav-toggle" id="navToggle" type="button">Menu</button>
+<button aria-label="Toggle color theme" class="theme-toggle theme-toggle--compact" id="themeToggle" type="button">Dark Mode</button>
+</div>
+</header>
+<main id="mainContent" tabindex="-1">
+<section class="page-hero">
+<div class="container page-hero-card">
+<span class="kicker">Admin Dashboard</span>
+<h1 class="page-title">Add inventory without editing the HTML by hand.</h1>
+<p>This keeps the spirit of your existing admin page: fast item creation, local storage, and immediate appearance in the catalog on this browser.</p>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<div class="admin-overview panel">
+<div class="admin-overview-grid">
+<div class="admin-stat-card">
+<span class="admin-stat-label">Local items</span>
+<strong class="admin-stat-value" id="adminStatCount">0</strong>
+<p>Saved in this browser right now.</p>
+</div>
+<div class="admin-stat-card">
+<span class="admin-stat-label">With photos</span>
+<strong class="admin-stat-value" id="adminStatPhotos">0</strong>
+<p>Entries using a custom uploaded or linked image.</p>
+</div>
+<div class="admin-stat-card">
+<span class="admin-stat-label">Categories used</span>
+<strong class="admin-stat-value" id="adminStatCategories">0</strong>
+<p>Quick view of how many sections your local inventory touches.</p>
+</div>
+</div>
+<p class="section-subtitle admin-overview-copy">Tip: drag a photo onto the uploader for a new item, or drop a new photo onto any saved card below to replace it.</p>
+</div>
+<div class="admin-layout">
+<form aria-describedby="adminAssist adminStatus" class="admin-form" id="adminForm" novalidate="">
+<h2 class="section-title" style="margin-top: 0;">Add a new item</h2>
+<p class="section-subtitle">Required fields are name, category, year, and price. Leave the image blank to use a branded category placeholder, including the new collectibles page.</p>
+<div class="admin-form-grid">
+<div>
+<label for="name">Name*</label>
+<input autocomplete="off" id="name" name="name" required="" type="text"/>
+</div>
+<div>
+<label for="category">Category*</label>
+<select id="category" name="category" required=""><option selected="" value="">Select one</option><option value="Baseball">Baseball</option><option value="Basketball">Basketball</option><option value="Football">Football</option><option value="Comics">Comics</option><option value="Collectibles">Collectibles</option><option value="Other">Other</option></select>
+<div aria-label="Quick category picker" class="category-pill-row">
+<button class="category-pill" data-category-pill="Baseball" type="button">Baseball</button>
+<button class="category-pill" data-category-pill="Basketball" type="button">Basketball</button>
+<button class="category-pill" data-category-pill="Football" type="button">Football</button>
+<button class="category-pill" data-category-pill="Comics" type="button">Comics</button>
+<button class="category-pill" data-category-pill="Collectibles" type="button">Collectibles</button>
+</div>
+</div>
+<div>
+<label for="team">Team / Publisher</label>
+<input autocomplete="off" id="team" name="team" placeholder="San Francisco Giants or Marvel" type="text"/>
+</div>
+<div>
+<label for="year">Year*</label>
+<input id="year" max="2050" min="1900" name="year" required="" type="number"/>
+</div>
+<div>
+<label for="condition">Condition</label>
+<input autocomplete="off" id="condition" name="condition" placeholder="PSA 8, VF, Raw, etc." type="text"/>
+</div>
+<div>
+<label for="price">Price (USD)*</label>
+<input id="price" min="0" name="price" required="" step="0.01" type="number"/>
+</div>
+<div class="full">
+<label for="image">Image URL</label>
+<input autocomplete="url" id="image" name="image" placeholder="Optional custom image path or URL" type="text"/>
+</div>
+<div class="full">
+<label for="imageFile">Upload / Drag Item Photo</label>
+<div aria-describedby="imageDropHint" class="image-dropzone" id="imageDropzone" role="button" tabindex="0">
+<div class="dropzone-copy">
+<strong>Drop a photo here</strong>
+<span>or click to choose an image from your device</span>
+</div>
+<button class="button-secondary dropzone-button" id="imageBrowseButton" type="button">Choose Image</button>
+<input accept="image/*" class="sr-only" id="imageFile" type="file"/>
+</div>
+<p class="helper-text" id="imageDropHint">Dropped images are resized in the browser and saved locally with the new entry on this device.</p>
+<div class="image-preview" hidden="" id="imagePreviewWrap">
+<img alt="Selected item preview" id="imagePreview"/>
+<div class="image-preview-copy">
+<strong id="imagePreviewName">Selected image</strong>
+<div class="inline-actions compact">
+<button class="button-secondary" id="imageRemoveButton" type="button">Remove Image</button>
+</div>
+</div>
+</div>
+</div>
+<div class="full">
+<label for="description">Description</label>
+<textarea autocomplete="off" id="description" name="description" placeholder="Write a short item description"></textarea>
+</div>
+</div>
+<p class="helper-text" id="adminAssist">Entries save to this browser only. Required fields are clearly marked, and a status message will confirm when an item is added.</p><div class="inline-actions">
+<button type="submit">Add Item</button>
+</div>
+<div aria-live="polite" class="status-message" hidden="" id="adminStatus"></div></form>
+<div class="panel admin-side-panel">
+<div class="admin-panel-header">
+<div>
+<h2 class="section-title" style="margin-top: 0;">Your locally added items</h2>
+<p class="section-subtitle">These entries are stored in your browser only. They appear in the shop and wishlist on this device unless you clear local storage.</p>
+</div>
+<div class="admin-toolbar">
+<div class="admin-search-box">
+<label for="customItemSearch">Find local items</label>
+<input autocomplete="off" id="customItemSearch" placeholder="Search by player, set, team, or category" type="text"/>
+</div>
+<div class="admin-toolbar-actions">
+<select aria-label="Filter local items by category" id="customItemFilter">
+<option value="All">All categories</option>
+<option value="Baseball">Baseball</option>
+<option value="Basketball">Basketball</option>
+<option value="Football">Football</option>
+<option value="Comics">Comics</option>
+<option value="Collectibles">Collectibles</option>
+<option value="Other">Other</option>
+</select>
+<button class="button-secondary" id="exportCustomItems" type="button">Export JSON</button>
+<label class="button-secondary file-action-button" for="importCustomItems">Import JSON</label>
+<input accept="application/json" class="sr-only" id="importCustomItems" type="file"/>
+<button class="button-ghost" id="clearCustomItems" type="button">Clear all</button>
+</div>
+</div>
+</div>
+<div class="custom-items" id="customItemsList"></div>
+</div>
+</div>
+</div></section>
+</main>
+<footer class="footer">
+<div class="container footer-inner">
+<div class="footer-brand">
+<div class="footer-logo-line">
+<img alt="DJ's House of Cards &amp; Comics logo" class="footer-logo" src="assets/dj-logo.png"/>
+<div>
+<div class="brand-script">DJ's House of Cards</div>
+<div class="brand-kicker">&amp; Comics • Trusted Hobby Finds</div>
+</div>
+</div>
+<p>Sports-themed, collectible-focused, and built to showcase cards, comics, and memorabilia with a cleaner modern feel.</p>
+</div>
+<div class="footer-links"><strong>Quick Links</strong><a href="sports-cards.html">Sports Cards</a><a href="comics.html">Comics</a><a href="collectibles.html">Collectibles</a><a href="wishlist.html">View wishlist <span data-wishlist-count="0">0</span></a><a href="about.html">About DJ</a><a href="contact.html">Contact</a><p>contact@djshouseofcards-comics.com</p></div>
+</div>
+<div class="container footer-bottom"><span>© 2026 DJ's House of Cards &amp; Comics. All rights reserved.</span><div class="footer-bottom-meta"><span>Built from your uploaded site code, refreshed with your logo, updated inventory, and page-specific category background and footer treatments.</span><a class="admin-footer-link active" href="admin.html">Admin</a></div></div>
+</footer>
+<button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">↑</button>
+<script defer="" src="scripts.js"></script>
+</body>
+</html>

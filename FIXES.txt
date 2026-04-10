@@ -1,0 +1,11 @@
+Website fixes applied:
+- Moved/categorized product images into assets/baseball-cards, assets/basketball-cards, assets/football-cards, assets/collectibles, and assets/comics.
+- Updated products.json image and imageGallery paths to the new subfolders.
+- Updated embedded productData JSON blocks in HTML pages.
+- Fixed scripts.js so baseball-cards, basketball-cards, and football-cards pages initialize the catalog renderer.
+
+baseball-cards: 0 files
+basketball-cards: 99 files
+collectibles: 9 files
+comics: 47 files
+football-cards: 0 files
