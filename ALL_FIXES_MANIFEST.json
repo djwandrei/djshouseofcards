@@ -1,0 +1,38 @@
+{
+  "patched_files": [
+    "core.js",
+    "catalog.js",
+    "admin.js",
+    "backend-admin.js",
+    "backend-config.js",
+    "backend-config.example.js",
+    "supabase-client.js",
+    "admin.html",
+    "index.html",
+    "baseball-cards.html",
+    "basketball-cards.html",
+    "football-cards.html",
+    "comics.html",
+    "collectibles.html",
+    "wishlist.html"
+  ],
+  "added_files": [
+    "products-data-full.js",
+    "products-data-featured.js",
+    "products-data-baseball.js",
+    "products-data-basketball.js",
+    "products-data-football.js",
+    "products-data-comics.js",
+    "products-data-collectibles.js",
+    "products-data-sports.js",
+    "scripts/build-public-catalog.mjs",
+    "scripts/normalize-missing-images.mjs"
+  ],
+  "notes": [
+    "Storefront is now source-aware and local-first when preloaded data is available.",
+    "Wishlist pruning now only persists against the full catalog.",
+    "Admin and Supabase seed import can reuse preloaded products.json.",
+    "Supabase config now supports publishable key alias and safe file:// fallback.",
+    "Supabase client now uses exact-version CDN fallbacks, friendly errors, pagination, soft delete, and a connection test."
+  ]
+}
